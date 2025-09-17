@@ -134,25 +134,49 @@
 
             <!-- Seção de informações da venda -->
             <h3 class="text-xs font-semibold mb-2 mt-4 border-l-2 border-blue-500 pl-2 text-gray-700">INFORMAÇÕES DA VENDA</h3>
-            <div class="grid grid-cols-1 gap-6 text-sm mb-6">
-                <div class="flex flex-col">
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 text-sm mb-6">
+                <div class="flex flex-col sm:col-span-3">
                     <label for="purchase-location" class="font-semibold text-blue-700 mb-1">Local da compra</label>
                     <select id="purchase-location" name="purchase-location" class="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 js-required">
                         <option value="">Selecione o local da compra</option>
-                        <option value="Miplace Honor, Rua Dom Pedro II, 857 centro Piracicaba CNPJ 34511185/0001-10">Miplace Honor, Rua Dom Pedro II, 857 centro Piracicaba CNPJ 34511185/0001-10</option>
-                        <option value="Miplace Realme, Rua Benjamin Constant, 1230 centro Piracicaba CNPJ 44739622/0001-01">Miplace Realme, Rua Benjamin Constant, 1230 centro Piracicaba CNPJ 44739622/0001-01</option>
-                        <option value="Miplace XV, Rua XV de Novembro, 910 centro Piracicaba CNPJ 13787408/0001-05">Miplace XV, Rua XV de Novembro, 910 centro Piracicaba CNPJ 13787408/0001-05</option>
-                        <option value="Miplace Premium, Rua Treze de Maio, 26 centro Amparo CNPJ 58186781/0001-30">Miplace Premium, Rua Treze de Maio, 26 centro Amparo CNPJ 58186781/0001-30</option>
-                        <option value="Miplace Kassouf, Rua Treze de Maio 218 Sala 9, centro Amparo CNPJ 58495100/0001-16">Miplace Kassouf, Rua Treze de Maio 218 Sala 9, centro Amparo CNPJ 58495100/0001-16</option>
+                        <option value="Miplace Honor">Miplace Honor, Rua Dom Pedro II, 857 centro Piracicaba CNPJ 34511185/0001-10</option>
+                        <option value="Miplace Realme">Miplace Realme, Rua Benjamin Constant, 1230 centro Piracicaba CNPJ 44739622/0001-01</option>
+                        <option value="Miplace XV">Miplace XV, Rua XV de Novembro, 910 centro Piracicaba CNPJ 13787408/0001-05</option>
+                        <option value="Miplace Premium">Miplace Premium, Rua Treze de Maio, 26 centro Amparo CNPJ 58186781/0001-30</option>
+                        <option value="Miplace Kassouf">Miplace Kassouf, Rua Treze de Maio 218 Sala 9, centro Amparo CNPJ 58495100/0001-16</option>
                     </select>
                 </div>
-                <div class="flex flex-col">
+                <div class="flex flex-col sm:col-span-1">
+                    <label for="how-heard" class="font-semibold text-blue-700 mb-1">Conheceu a loja por</label>
+                    <!-- Campo de seleção dinâmico para "Conheceu a loja por" -->
+                    <select id="how-heard" name="how-heard" class="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 js-required">
+                        <option value="">Selecione primeiro o local da compra</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Novo grid para os campos de pagamento com proporção de 50/25/25 -->
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-6 text-sm mb-6">
+                <div class="flex flex-col sm:col-span-2">
                     <label for="bi-weekly-installments" class="font-semibold text-blue-700 mb-1">Quantidade de parcelas Bi-Semanais escolhido</label>
                     <select id="bi-weekly-installments" name="bi-weekly-installments" class="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 js-required">
                         <option value="">Selecione a quantidade de parcelas</option>
                         <option value="8">8 parcelas bi-semanais ( vencimento a cada 14 dias)</option>
                         <option value="12">12 parcelas bi-semanais ( vencimento a cada 14 dias)</option>
                         <option value="18">18 parcelas bi-semanais ( vencimento a cada 14 dias)</option>
+                    </select>
+                </div>
+                <div class="flex flex-col sm:col-span-1">
+                    <label for="payment-entry" class="font-semibold text-blue-700 mb-1">Valor da entrada</label>
+                    <input type="text" id="payment-entry" name="payment-entry" placeholder="R$ 0,00" class="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 js-required">
+                </div>
+                <div class="flex flex-col sm:col-span-1">
+                    <label for="payment-method" class="font-semibold text-blue-700 mb-1">Forma de pagamento</label>
+                    <select id="payment-method" name="payment-method" class="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 js-required">
+                        <option value="">Selecione a forma de pagamento</option>
+                        <option value="Dinheiro">Dinheiro</option>
+                        <option value="Pix">Pix</option>
+                        <option value="Débito">Débito</option>
+                        <option value="Crédito">Crédito</option>
                     </select>
                 </div>
             </div>
@@ -174,10 +198,14 @@
                     <label for="buyer-name" class="font-semibold text-blue-700 mb-1">Nome do Comprador</label>
                     <input type="text" id="buyer-name" name="buyer-name" class="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 js-required">
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-4">
                     <div class="flex flex-col">
                         <label for="date" class="font-semibold text-blue-700 mb-1">DATA</label>
                         <input type="text" id="date" name="date" placeholder="dd/mm/yyyy" class="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 js-required">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="date-of-birth" class="font-semibold text-blue-700 mb-1">DATA NASCIMENTO</label>
+                        <input type="text" id="date-of-birth" name="date-of-birth" placeholder="dd/mm/yyyy" class="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 js-required">
                     </div>
                     <div class="flex flex-col">
                         <label for="cpf" class="font-semibold text-blue-700 mb-1">CPF</label>
@@ -294,6 +322,9 @@
             });
             document.getElementById('validation-message').classList.add('hidden');
             updateConfirmationText();
+            // Limpa as opções do campo "Conheceu a loja por"
+            const howHeardSelect = document.getElementById('how-heard');
+            howHeardSelect.innerHTML = '<option value="">Selecione primeiro o local da compra</option>';
         }
 
         // Função para validar e imprimir
@@ -333,6 +364,10 @@
         const warrantyDateInput = document.getElementById('warranty-date');
         warrantyDateInput.addEventListener('keyup', () => formatDate(warrantyDateInput));
 
+        // Novo listener para o campo de data de nascimento
+        const dateOfBirthInput = document.getElementById('date-of-birth');
+        dateOfBirthInput.addEventListener('keyup', () => formatDate(dateOfBirthInput));
+
         // Botão para preencher a data atual
         document.getElementById('fill-date-btn').addEventListener('click', () => {
             const today = new Date();
@@ -350,14 +385,24 @@
         const purchaseLocationSelect = document.getElementById('purchase-location');
         const miplaceInfo = document.getElementById('miplace-info');
         const supportPhoneSpan = document.getElementById('support-phone');
+        const howHeardSelect = document.getElementById('how-heard');
 
         // Mapa de telefones por local de compra
         const phoneMap = {
-            "Miplace Honor, Rua Dom Pedro II, 857 centro Piracicaba CNPJ 34511185/0001-10": "(19) 99497-5131 - Miplace Honor CNPJ 34.511.185/0001-10",
-            "Miplace Realme, Rua Benjamin Constant, 1230 centro Piracicaba CNPJ 44739622/0001-01": "(19) 99451-0123 - Miplace Realme CNPJ 44.739.622/0001-01",
-            "Miplace XV, Rua XV de Novembro, 910 centro Piracicaba CNPJ 13787408/0001-05": "(19) 99152-2724 - Miplace XV CNPJ 13.787.408/0001-05",
-            "Miplace Premium, Rua Treze de Maio, 26 centro Amparo CNPJ 58186781/0001-30": "(19) 99961-8865 - Miplace Premium CNPJ 58.186.781/0001-30 ",
-            "Miplace Kassouf, Rua Treze de Maio 218 Sala 9, centro Amparo CNPJ 58495100/0001-16": "(19) 97107-7066 - Miplace Kassouf CNPJ 58.495.100/0001-16"
+            "Miplace Honor": "(19) 99497-5131 - Miplace Honor CNPJ 34.511.185/0001-10",
+            "Miplace Realme": "(19) 99451-0123 - Miplace Realme CNPJ 44.739.622/0001-01",
+            "Miplace XV": "(19) 99152-2724 - Miplace XV CNPJ 13.787.408/0001-05",
+            "Miplace Premium": "(19) 99961-8865 - Miplace Premium CNPJ 58.186.781/0001-30 ",
+            "Miplace Kassouf": "(19) 97107-7066 - Miplace Kassouf CNPJ 58.495.100/0001-16"
+        };
+        
+        // Mapa de opções para o campo "Conheceu a loja por"
+        const howHeardOptions = {
+            "Miplace Honor": ["Cliente Loja", "Facebook", "Tiktok", "Jack", "Daia", "Tati", "Jenifer", "Gabriel", "Ana Carvalho", "Bia vendedora", "Ana vendedora", "Davison gerente", "Pastor Everaldo", "Diogenes", "Instagram"],
+            "Miplace Realme": ["Cliente Loja", "Facebook", "Tiktok", "Jack", "Ana gerente", "Jojô", "Gustavo Carvalho", "Hemilly", "Kell", "Pedro vendedor", "Instagram"],
+            "Miplace XV": ["Cliente Loja", "Facebook", "Tiktok", "Jack", "Fabi gerente", "Polly vendedora", "Filipe vendedor", "Alanis", "Pri Almeida", "Tamires", "Instagram"],
+            "Miplace Premium": ["Cliente Loja", "Facebook", "Tiktok", "Jack", "Sabrina gerente", "Giovane gerente", "Bianca vendedora", "Fabio vendedor", "Allan vendedor", "Caio Honor", "Pri Almeida", "Pri Negrão", "Instagram"],
+            "Miplace Kassouf": ["Cliente Loja", "Facebook", "Tiktok", "Jack", "Sabrina gerente", "Giovane gerente", "Bianca vendedora", "Fabio vendedor", "Allan vendedor", "Caio Honor", "Pri Almeida", "Pri Negrão", "Instagram"]
         };
         
         // Event listener para o campo de seleção de local de compra
@@ -377,8 +422,25 @@
             if (newPhoneNumber) {
                 supportPhoneSpan.textContent = newPhoneNumber;
             } else {
-                // Se nenhuma loja válida for selecionada, remove o número de telefone.
                 supportPhoneSpan.textContent = '';
+            }
+
+            // Atualiza as opções do campo "Conheceu a loja por"
+            howHeardSelect.innerHTML = ''; // Limpa as opções existentes
+            
+            if (selectedValue) {
+                const options = howHeardOptions[selectedValue] || [];
+                options.forEach(optionText => {
+                    const option = document.createElement('option');
+                    option.value = optionText;
+                    option.textContent = optionText;
+                    howHeardSelect.appendChild(option);
+                });
+            } else {
+                const defaultOption = document.createElement('option');
+                defaultOption.value = "";
+                defaultOption.textContent = "Selecione primeiro o local da compra";
+                howHeardSelect.appendChild(defaultOption);
             }
         });
         
