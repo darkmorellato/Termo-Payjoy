@@ -23,11 +23,16 @@
         }
         /* Estilos específicos para impressão */
         @media print {
+            @page {
+                margin: 0.5cm; /* Margens mínimas para aproveitar a folha */
+                size: A4;
+            }
             body {
                 background-color: #fff !important;
                 margin: 0;
                 padding: 0;
-                font-size: 10pt;
+                font-size: 9pt !important; /* Fonte reduzida para caber */
+                line-height: 1.15 !important; /* Linhas mais compactas */
                 color: #000;
             }
             .no-print {
@@ -37,45 +42,71 @@
                 box-shadow: none !important;
                 border: none !important;
                 max-width: 100%;
-                width: 210mm;
-                height: 290mm;
-                margin: 0 auto;
-                padding: 10mm;
+                width: 100%;
+                margin: 0;
+                padding: 0;
             }
             .page-break {
                 page-break-after: always;
+                page-break-inside: avoid;
             }
-            h1 { font-size: 14pt; }
-            h2 { font-size: 12pt; }
-            h3 { font-size: 11pt; }
-            p, ul, label, input, select { font-size: 10pt; }
-            .mb-2 { margin-bottom: 0.5rem !important; }
-            .mt-4 { margin-top: 0.75rem !important; }
-            .py-1 { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; }
-            .border-b-2 { border-bottom-width: 1px !important; }
+
+            /* Redução de tipografia para impressão */
+            h1 { font-size: 13pt !important; margin-bottom: 2px !important; }
+            h2 { font-size: 11pt !important; margin-bottom: 2px !important; }
+            h3 { font-size: 10pt !important; margin-top: 8px !important; margin-bottom: 2px !important; }
+            p, ul, label, input, select, li { font-size: 9pt !important; }
+
+            /* Compactação de espaçamentos */
+            .mb-8 { margin-bottom: 10px !important; }
+            .mb-6 { margin-bottom: 8px !important; }
+            .mb-4 { margin-bottom: 5px !important; }
+            .mb-2 { margin-bottom: 2px !important; }
+            .mt-4 { margin-top: 5px !important; }
+            .mt-5 { margin-top: 8px !important; }
+            .mt-6 { margin-top: 8px !important; }
+            .mt-7 { margin-top: 10px !important; }
+            .pt-4 { padding-top: 5px !important; }
+            .pt-5 { padding-top: 5px !important; }
+            .p-6 { padding: 10px !important; }
+
+            /* Ajuste de Grid e Flex */
+            .gap-6 { gap: 8px !important; }
+            .space-y-1 > :not([hidden]) ~ :not([hidden]) { --tw-space-y-reverse: 0; margin-top: 2px; margin-bottom: 2px; }
+            
+            /* Inputs e Selects otimizados para papel */
             input, select {
                 border: none !important;
+                border-bottom: 1px solid #ccc !important;
                 padding: 0 !important;
+                height: auto !important;
+                background: transparent !important;
                 display: inline-block;
-                width: auto;
+                width: 100%;
                 -webkit-appearance: none;
                 -moz-appearance: none;
                 appearance: none;
-                background-image: none;
             }
-            .input-field-print {
-                display: block !important;
-                padding-bottom: 5px;
-                border-bottom: 1px solid #000;
-                margin-bottom: 10px;
-                font-weight: bold;
+            label {
+                margin-bottom: 0 !important;
             }
+            
+            /* Assinatura e Imagem */
             .signature-line {
-                border-bottom: 2px solid #000 !important;
+                border-bottom: 1px solid #000 !important;
+                height: 20px !important;
+                margin-bottom: 5px !important;
             }
-            .bg-blue-100 {
-                background-color: transparent !important;
-                color: #000 !important;
+            img {
+                width: 40px !important;
+                height: 40px !important;
+                margin-right: 10px !important;
+            }
+            
+            /* Box azul claro vira apenas borda ou cinza muito claro se a impressora permitir */
+            .bg-blue-50 {
+                background-color: #f9fafb !important;
+                border: 1px solid #ccc !important;
             }
         }
     </style>
@@ -105,7 +136,7 @@
             <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600 mb-6">
                 <li class="font-bold">Não realizarei formatação ou tentativa de hard reset no aparelho.</li>
                 <li class="font-bold">Não instalarei aplicativos fora da Play Store, ou seja, não utilizarei arquivos APK.</li>
-                <li class="font-bold">Estou ciente de que o não pagamento das parcelas conforme acordado na proposta resultará no bloqueio total do aparelho, limitando todas as suas funcionalidades.</li>
+                <li class="font-bold">Estou ciente de que o não pagamento das parcelas conforme acordado na proposta resultará no bloqueio total do aparelho, limitando todas as suas funcionalidades. O aparelho dependendo da marca pode ter algumas limitações em algumas funções durante a vigência do contrato, como modo desenvolvedor, etc.</li>
                 <li class="font-bold">Não comercializarei o aparelho, pois, até a quitação total do financiamento, ele pertence à financeira, embora esteja em minha posse.</li>
                 <li class="font-bold">A remoção do chip do slot 1, que está cadastrado na venda, causará o bloqueio imediato do dispositivo.</li>
                 <li class="font-bold">Os pagamentos são cobrados a cada 14 dias. Você tem a opção de antecipar duas parcelas de uma só vez pelo aplicativo, quitando o valor correspondente a 28 dias. O contrato tem duração de 4, 6 ou 9 meses, conforme o plano escolhido.</li>
